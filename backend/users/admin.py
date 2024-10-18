@@ -16,6 +16,7 @@ class UserAdmin(UserAdmin):
     list_filter = ('email', 'first_name')
     empty_value_display = '-empty-'
 
+
 @admin.register(Follow)
 class SubscriptionAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'author')
