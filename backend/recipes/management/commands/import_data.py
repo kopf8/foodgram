@@ -14,8 +14,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         success_count = 0
         print('Loading data...')
-        file_path = options['path'] + 'ingredients.csv'
-        with open(file_path, 'r') as csv_file:
+        with open(
+                'data/ingredients.csv',
+                'r',
+                encoding='utf-8',
+        ) as csv_file:
             reader = csv.reader(csv_file)
 
             for row in reader:
