@@ -16,14 +16,14 @@ class User(AbstractUser):
             message='Username contains restricted symbols. Please use only '
                     'letters, numbers and .@+- symbols',
         ), ],
-        verbose_name='username',
+        verbose_name='Unique username',
     )
     email = models.EmailField(
         max_length=c.EMAIL_MAX_LENGTH,
         unique=True,
         blank=False,
         null=False,
-        verbose_name='email',
+        verbose_name='Email address',
     )
     first_name = models.CharField(
         max_length=c.FIRST_NAME_MAX_LENGTH,
@@ -45,7 +45,7 @@ class User(AbstractUser):
     class Meta:
         verbose_name = 'User'
         verbose_name_plural = 'Users'
-        ordering = ['-id']
+        ordering = ['username']
 
     def __str__(self):
         return self.username
