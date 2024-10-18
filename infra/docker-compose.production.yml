@@ -2,10 +2,12 @@ volumes:
   pg:
   static:
   media:
+  redoc:
 
 services:
   db:
     image: postgres:13
+    restart: always
     volumes:
       - pg:/var/lib/postgresql/data/
     env_file:
@@ -13,9 +15,11 @@ services:
 
   backend:
     image: kopf8/foodgram_backend
+    restart: always
     volumes:
       - static:/backend_static/
       - media:/app/media/
+      - redoc:/app/api/docs/
     env_file:
       - ../.env
     depends_on:
@@ -31,11 +35,11 @@ services:
 
   gateway:
     image: kopf8/foodgram_gateway
+    restart: always
     ports:
       - "9090:80"
     volumes:
-      - ../docs/redoc.html:/usr/share/nginx/html/api/docs/redoc.html
-      - ../docs/openapi-schema.yml:/usr/share/nginx/html/api/docs/openapi-schema.yml
+      - redoc:/usr/share/nginx/html/api/docs/
       - static:/staticfiles/
       - media:/app/media/
     env_file:
