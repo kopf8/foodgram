@@ -131,7 +131,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Deploy for project "yandex-foodgram" finished with 0 problems.
+          Deploy for project "${{ github.repository }}" finished with 0 problems.
           User: ${{ github.actor }}
           Commit: ${{ github.event.commits[0].message }}
           Link on commit: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
