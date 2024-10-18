@@ -1,6 +1,5 @@
 frontend/node_modules
 infra/frontend/build
-.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -64,6 +63,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+db.sqlite3.bak
 
 # Flask stuff:
 instance/
@@ -140,3 +140,4 @@ dmypy.json
 
 static/
 media/
+postman_collection/
