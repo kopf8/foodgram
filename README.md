@@ -124,6 +124,7 @@ Documentation can be accessed via the following link after deployment:
 ```url
 http://<your.server.address>/api/docs/
 ```
+<br>Example documentation can be viewed [here](https://yandex-foodgram.hopto.org/api/docs/).
 
 ## Project created by:
 ### [Maria Kirsanova](https://github.com/kopf8)

@@ -1,14 +1,17 @@
 import base64
 
+from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
-from djoser.serializers import UserSerializer
+from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
 from foodgram import constants as c
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
                             RecipeTags, ShoppingList, ShortLink, Tag)
-from users.models import Follow, User
+from users.models import Follow
+
+User = get_user_model()
 
 
 class Base64ImageField(serializers.ImageField):
@@ -45,7 +48,7 @@ class CustomUserSerializer(UserSerializer):
         return request.user.follower.filter(author=obj).exists()
 
 
-class CustomUserCreateSerializer(CustomUserSerializer):
+class CustomUserCreateSerializer(UserCreateSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:

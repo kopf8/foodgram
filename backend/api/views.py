@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -14,17 +15,21 @@ from rest_framework.reverse import reverse
 from api.filters import IngredientFilter, RecipeFilter
 from api.pagination import CustomLimitPagination
 from api.permissions import IsAdminAuthorOrReadOnly
-from api.serializers import (AvatarSerializer, FavoriteRecipeSerializer,
-                             IngredientSerializer, RecipeReadSerializer,
-                             RecipeWriteSerializer, ShortUrlSerializer,
-                             SubscriberDetailSerializer, SubscriberSerializer,
-                             TagSerializer)
+from api.serializers import (AvatarSerializer, CustomUserSerializer,
+                             FavoriteRecipeSerializer, IngredientSerializer,
+                             RecipeReadSerializer, RecipeWriteSerializer,
+                             ShortUrlSerializer, SubscriberDetailSerializer,
+                             SubscriberSerializer, TagSerializer)
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
                             ShoppingList, ShortLink, Tag)
-from users.models import Follow, User
+from users.models import Follow
+
+User = get_user_model()
 
 
 class CustomUserViewSet(UserViewSet):
+    queryset = User.objects.all()
+    serializer_class = CustomUserSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
     pagination_class = CustomLimitPagination
 
