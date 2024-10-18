@@ -2,6 +2,7 @@ import csv
 
 from django.core.management.base import BaseCommand
 
+from foodgram import settings
 from recipes.models import Ingredient
 
 
@@ -15,7 +16,7 @@ class Command(BaseCommand):
         success_count = 0
         print('Loading data...')
         with open(
-                'data/ingredients.csv',
+                f'{settings.BASE_DIR}/data/ingredients.csv',
                 'r',
                 encoding='utf-8',
         ) as csv_file:
