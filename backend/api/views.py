@@ -160,7 +160,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     )
     def get_link(self, request, pk=None):
         recipe = get_object_or_404(Recipe, pk=pk)
-        rev_link = reverse("recipes:shortlink", args=[recipe.pk])
+        rev_link = reverse("foodgram:short_url", args=[recipe.pk])
         return Response({"short-link": request.build_absolute_uri(rev_link)},
                         status=status.HTTP_200_OK,)
 
