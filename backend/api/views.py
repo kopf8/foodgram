@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -21,7 +22,7 @@ from api.serializers import (AvatarSerializer, CustomUserSerializer,
                              ShortUrlSerializer, SubscriberDetailSerializer,
                              SubscriberSerializer, TagSerializer)
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
-                            ShoppingList, ShortLink, Tag)
+                            ShoppingList, Tag)
 from users.models import Follow
 
 User = get_user_model()
@@ -158,18 +159,10 @@ class RecipeViewSet(viewsets.ModelViewSet):
         url_name='get-link',
     )
     def get_link(self, request, pk=None):
-        self.get_object()
-        full_url = request.META.get('HTTP_REFERER')
-        if full_url is None:
-            url = reverse('api:recipes-detail', kwargs={'pk': pk})
-            full_url = request.build_absolute_uri(url)
-        serializer = self.get_serializer(
-            data={'full_url': full_url},
-            context={'request': request},
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        recipe = get_object_or_404(Recipe, pk=pk)
+        rev_link = reverse("recipes:shortlink", args=[recipe.pk])
+        return Response({"short-link": request.build_absolute_uri(rev_link)},
+                        status=status.HTTP_200_OK,)
 
     @action(
         detail=True,
@@ -265,9 +258,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 
 @require_GET
-def short_url(request, url):
-    full_url = get_object_or_404(
-        ShortLink,
-        short_url=url
-    ).full_url
-    return redirect(full_url)
+def short_url(request, pk):
+    try:
+        Recipe.objects.filter(pk=pk).exists()
+        return redirect(f'/recipes/{pk}/')
+    except Exception:
+        raise ValidationError(f'Recipe "{pk}" does not exist.')
