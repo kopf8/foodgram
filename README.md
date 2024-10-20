@@ -52,9 +52,10 @@ TELEGRAM_TO
 TELEGRAM_TOKEN
 ```
 
-Then login to your host server and install all necessary components:
+Then open a terminal, login to your host server and install all necessary components.
 ```bash
-# username - your username to access Virtual Machine (VM) on host server, ip - ip-address of your VM working under Linux.
+# username - your username to access Virtual Machine (VM) on host server,
+# ip - ip-address of your VM working under Linux.
 ssh username@ip
 ```
 
@@ -78,7 +79,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl start docker.service && sudo systemctl enable docker.service
 ```
 
-When all components are successfully installed, you need to create directory **/foodgram** in your home directory **/home/username/** on your VM:
+When all components are successfully installed, you need to create directory **/foodgram** in your home directory **/home/username/** on your VM 
+(where _'username'_ is your username on your host server):
 
 ```bash
 cd ~
@@ -114,6 +116,9 @@ After that you can clone your repository to your local machine via SSH link usin
 ```bash
 git clone git@github.com:username/foodgram.git # <username> is your GitHub username 
 ```
+Edit file _'infra/nginx.conf'_ on your local machine by adding IP-address of your server in _'server_name'_ line of the file.
+
+Make other changes to the code, which you find necessary.
 
 After you finished working with the code, commit & push all changes to your GitHub repository.
 Project CI/CD procedure will automatically deploy all changes to your remote VM using GitHub Actions workflow.
@@ -128,4 +133,5 @@ http://<your.server.address>/api/docs/
 <br>Example documentation can be viewed [here](https://yandex-foodgram.hopto.org/api/docs/).
 
 ## Project created by:
-### [Maria Kirsanova](https://github.com/kopf8)
+### [✍️ Maria Kirsanova](https://github.com/kopf8)
+on the basis of initial draft project by [Yandex Practicum](https://github.com/yandex-praktikum/foodgram).
