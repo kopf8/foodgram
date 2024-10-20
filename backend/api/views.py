@@ -19,8 +19,8 @@ from api.permissions import IsAdminAuthorOrReadOnly
 from api.serializers import (AvatarSerializer, CustomUserSerializer,
                              FavoriteRecipeSerializer, IngredientSerializer,
                              RecipeReadSerializer, RecipeWriteSerializer,
-                             ShortUrlSerializer, SubscriberDetailSerializer,
-                             SubscriberSerializer, TagSerializer)
+                             SubscriberDetailSerializer, SubscriberSerializer,
+                             TagSerializer)
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
                             ShoppingList, Tag)
 from users.models import Follow
@@ -145,10 +145,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
     filterset_class = RecipeFilter
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve']:
+        if self.action in ['list', 'retrieve', 'get-link']:
             return RecipeReadSerializer
-        elif self.action == 'get_link':
-            return ShortUrlSerializer
         return RecipeWriteSerializer
 
     @action(

@@ -1,5 +1,3 @@
-import secrets
-
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 
@@ -233,30 +231,3 @@ class ShoppingList(models.Model):
         return (
             f'Recipe {self.recipe} is in shopping list of user {self.user}'
         )
-
-
-def generate_short_link():
-    print(secrets.token_hex(nbytes=3))
-    return secrets.token_hex(nbytes=3)
-
-
-class ShortLink(models.Model):
-    full_url = models.CharField(
-        unique=True,
-        max_length=c.FULL_URL_MAX_LENGTH,
-        verbose_name='Full link',
-    )
-    short_url = models.CharField(
-        unique=True,
-        max_length=c.SHORT_URL_MAX_LENGTH,
-        default=generate_short_link,
-        verbose_name='Short link',
-    )
-
-    class Meta:
-        verbose_name = 'Short link'
-        verbose_name_plural = 'Short links'
-        ordering = ['-id']
-
-    def __str__(self):
-        return f'{self.full_url} = {self.short_url}'

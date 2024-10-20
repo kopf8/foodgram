@@ -30,7 +30,15 @@
 "Foodgram" project is a website where users will publish their recipes, add other people's recipes to favorites and subscribe to publications by other authors.
 The Shopping List service will also be available to registered users. It will allow you to create a list of products that you need to buy to prepare selected dishes.
 
-<br>Project website: https://yandex-foodgram.hopto.org/
+### Project website:
+
+https://yandex-foodgram.hopto.org/
+<br>https://89.169.167.69/
+<br>
+### superuser details:
+e-mail - _**test@test.com**_
+<br>username - _**admin**_
+<br>password - _**admin**_
 
 <hr>
 

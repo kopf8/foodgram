@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from foodgram import constants as c
-from recipes.models import Ingredient, Recipe, ShortLink, Tag
+from recipes.models import Ingredient, Recipe, Tag
 
 
 class RecipeIngredientsInLine(admin.TabularInline):
@@ -34,9 +34,3 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'slug')
     search_fields = ('name',)
     empty_value_display = '-empty-'
-
-
-@admin.register(ShortLink)
-class ShortLinkAdmin(admin.ModelAdmin):
-    list_display = ('id', 'full_url', 'short_url')
-    list_display_links = ('full_url',)

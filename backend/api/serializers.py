@@ -4,11 +4,10 @@ from django.contrib.auth import get_user_model
 from django.core.files.base import ContentFile
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
-from rest_framework.reverse import reverse
 
 from foodgram import constants as c
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
-                            RecipeTags, ShoppingList, ShortLink, Tag)
+                            RecipeTags, ShoppingList, Tag)
 from users.models import Follow
 
 User = get_user_model()
@@ -325,25 +324,3 @@ class FavoriteRecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = ('id', 'name', 'image', 'cooking_time')
-
-
-class ShortUrlSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ShortLink
-        fields = ('full_url',)
-
-    def get_short_link(self, obj):
-        request = self.context.get('request')
-        return request.build_absolute_uri(
-            reverse(
-                'api:short_url',
-                args=[obj.short_url]
-            )
-        )
-
-    def create(self, validated_data):
-        instance, _ = ShortLink.objects.get_or_create(**validated_data)
-        return instance
-
-    def to_representation(self, instance):
-        return {'short-link': self.get_short_link(instance)}
