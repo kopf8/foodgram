@@ -32,6 +32,7 @@ class CustomUserViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = CustomUserSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    pagination_class = CustomLimitPagination
 
     @action(['get'], detail=False, permission_classes=(IsAuthenticated,))
     def me(self, request, *args, **kwargs):
