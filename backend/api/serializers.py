@@ -138,11 +138,12 @@ class RecipeReadSerializer(serializers.ModelSerializer):
 
     def check_user_status(self, obj, model_class):
         user = self.context.get('request')
-        return bool((
-            user,
-            user.user.is_authenticated,
-            model_class.objects.filter(recipe=obj, user=user.user).exists(),
-        ))
+        return bool(
+            user
+            and user.user.is_authenticated
+            and model_class.objects.filter(recipe=obj,
+                                           user=user.user).exists()
+        )
 
     def get_is_favorited(self, obj):
         return self.check_user_status(obj, Favorite)
