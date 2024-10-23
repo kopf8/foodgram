@@ -145,7 +145,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     filterset_class = RecipeFilter
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve', 'get-link']:
+        if self.action in ('list', 'retrieve', 'get-link'):
             return RecipeReadSerializer
         return RecipeWriteSerializer
 

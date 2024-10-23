@@ -1,6 +1,7 @@
 import csv
 
 from django.core.management.base import BaseCommand
+from django.db import IntegrityError
 
 from foodgram import settings
 from recipes.models import Ingredient
@@ -34,6 +35,6 @@ class Command(BaseCommand):
                         success_count += 1
                     if not created:
                         print(f'Ingredient {obj} already exists in database')
-                except Exception as err:
+                except IntegrityError as err:
                     print(f'Error in row {row}: {err}')
         print(f'{success_count} entries were imported from .csv file.')

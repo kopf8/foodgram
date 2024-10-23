@@ -192,7 +192,6 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'Please add ingredient'
             )
-        print(value)
         ingredient_ids = [ingredient['id'] for ingredient in value]
         existing_ingredients = Ingredient.objects.filter(id__in=ingredient_ids)
         if len(existing_ingredients) != len(ingredient_ids):
