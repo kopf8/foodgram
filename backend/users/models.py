@@ -69,6 +69,7 @@ class Follow(models.Model):
     )
 
     class Meta:
+        ordering = ('-id',)
         verbose_name = 'Subscription'
         verbose_name_plural = 'Subscriptions'
         constraints = [

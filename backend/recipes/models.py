@@ -165,6 +165,7 @@ class RecipeTags(models.Model):
     )
 
     class Meta:
+        ordering = ('-id',)
         verbose_name = 'Recipe tag'
         verbose_name_plural = 'Recipe tags'
 
