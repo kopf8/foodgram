@@ -71,6 +71,7 @@ class Recipe(models.Model):
     )
     ingredients = models.ManyToManyField(
         Ingredient,
+        blank=False,
         through='RecipeIngredient',
         related_name='recipes',
         verbose_name='Recipe ingredients',
@@ -85,8 +86,7 @@ class Recipe(models.Model):
         help_text='Cooking time in minutes',
     )
     image = models.ImageField(
-        blank=True,
-        null=True,
+        blank=False,
         verbose_name='Recipe image',
         help_text='Recipe image',
         upload_to='media/recipes/',
@@ -99,6 +99,7 @@ class Recipe(models.Model):
     )
     tags = models.ManyToManyField(
         Tag,
+        blank=False,
         through='RecipeTags',
         related_name='recipes',
         verbose_name='Recipe tags',
