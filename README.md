@@ -1,4 +1,5 @@
 [![.github/workflows/main.yml](https://github.com/kopf8/foodgram/actions/workflows/main.yml/badge.svg)](https://github.com/kopf8/foodgram/actions/workflows/main.yml)
+[![Github All Releases](https://img.shields.io/github/downloads/kopf8/foodgram/total.svg)]()
 
 # 📝 [foodgram](https://github.com/kopf8/foodgram.git)
 ### <br>➜ https://yandex-foodgram.hopto.org/
@@ -23,6 +24,11 @@
 - ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 - ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+- ![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+- ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+- ![YAML](https://img.shields.io/badge/YAML-CB171E?style=for-the-badge&logo=yaml&logoColor=white)
+- ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+- ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 
 <br><hr>
 ## Project description:
@@ -34,12 +40,7 @@ The Shopping List service will also be available to registered users. It will al
 
 https://yandex-foodgram.hopto.org/
 <br>https://89.169.167.69/
-<br>
-### superuser details:
-e-mail - _**test@test.com**_
-<br>username - _**admin**_
-<br>password - _**admin**_
-
+<br><br>
 <hr>
 
 ## Project deployment:
