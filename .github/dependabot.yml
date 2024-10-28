@@ -1,7 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/"
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/infra"
     schedule:
       interval: "weekly"
   - package-ecosystem: "pip"
