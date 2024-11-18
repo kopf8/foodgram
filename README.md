@@ -38,7 +38,6 @@ The Shopping List service will also be available to registered users. It will al
 ### Project website:
 
 https://yandex-foodgram.hopto.org/
-<br>https://89.169.167.69/
 <br><br>
 <hr>
 
