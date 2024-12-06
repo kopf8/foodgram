@@ -6,7 +6,7 @@ const Footer = () => {
   return <footer className={styles.footer}>
     <Container className={styles.footer__container}>
       <LinkComponent
-        href='#'
+        href='/recipes'
         className={styles.footer__brand}
         title={<img src={LogoFooter} className={styles.footer__logo} />}
       />
