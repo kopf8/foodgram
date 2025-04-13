@@ -25,7 +25,7 @@ oauthlib==3.2.2
 packaging==24.2
 pillow==11.1.0
 psycopg2-binary==2.9.10
-pycodestyle==2.12.1
+pycodestyle==2.13.0
 pycparser==2.22
 pyflakes==3.2.0
 PyJWT==2.10.1
