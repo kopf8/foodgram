@@ -23,7 +23,7 @@ Markdown==3.8
 mccabe==0.7.0
 oauthlib==3.2.2
 packaging==24.2
-pillow==11.1.0
+pillow==11.2.1
 psycopg2-binary==2.9.10
 pycodestyle==2.13.0
 pycparser==2.22
