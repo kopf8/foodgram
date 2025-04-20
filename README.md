@@ -1,8 +1,8 @@
 [![.github/workflows/main.yml](https://github.com/kopf8/foodgram/actions/workflows/main.yml/badge.svg)](https://github.com/kopf8/foodgram/actions/workflows/main.yml)
 
 # 📝 [foodgram](https://github.com/kopf8/foodgram.git)
-<img src="https://github.com/kopf8/foodgram/blob/main/screenshot.png" alt="Foodgram" width=100>
-### <br>➜ https://yandex-foodgram.hopto.org/
+<img src="https://github.com/kopf8/foodgram/blob/main/screenshot.png" alt="Foodgram" width=500><br>
+### ➜ https://yandex-foodgram.hopto.org/
 <br><hr>
 
 ### Contents:
