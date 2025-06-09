@@ -4,7 +4,7 @@ cffi==1.17.1
 charset-normalizer==3.4.1
 cryptography==44.0.2
 defusedxml==0.8.0rc2
-Django
+Django>=5.1.10
 django-debug-toolbar==5.1.0
 django-filter==25.1
 django-templated-mail==1.1.1
