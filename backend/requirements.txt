@@ -1,5 +1,5 @@
 asgiref==3.8.1
-certifi==2025.1.31
+certifi==2025.4.26
 cffi==1.17.1
 charset-normalizer==3.4.2
 cryptography==44.0.2
@@ -17,7 +17,7 @@ flake8==7.2.0
 flake8-isort==6.1.2
 gunicorn==23.0.0
 idna==3.10
-importlib_metadata==8.6.1
+importlib_metadata==8.7.0
 isort==6.0.1
 Markdown==3.8
 mccabe==0.7.0
@@ -27,9 +27,9 @@ pillow==11.2.1
 psycopg2-binary==2.9.10
 pycodestyle==2.13.0
 pycparser==2.22
-pyflakes==3.3.0
-PyJWT==2.9.0
-python-dotenv==1.0.1
+pyflakes==3.3.2
+PyJWT==2.10.1
+python-dotenv==1.1.0
 python3-openid==3.2.0
 requests==2.32.3
 requests-oauthlib==2.0.0
